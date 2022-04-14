@@ -11,11 +11,11 @@ namespace ConsoleUI
 
             var productManager = new ProductManager(new EfProductDal());
 
+            var result = productManager.GetAll();
 
-            foreach (var product in productManager.GetAll())
-            {
-                Console.WriteLine(product.ProductName);
-            }
+
+            Console.WriteLine(result.Success);
+
             Console.ReadLine();
         }
     }

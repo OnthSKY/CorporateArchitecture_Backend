@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
@@ -17,9 +19,9 @@ namespace Business.Concrete
         {
             _productDal = productDal;
         }
-        public List<Product> GetAll()
+        public IDataResult<List<Product>> GetAll()
         {
-            return _productDal.GetAll();
+            return new SuccessDataResult<List<Product>>(_productDal.GetAll(),Messages.ListingSuccessful);
         }
 
         public List<ProductDetailsDto> GetAllProductDetails()
